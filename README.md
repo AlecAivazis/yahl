@@ -22,7 +22,7 @@ foo x -> 2 * x
 Defining a variable in `yahl` is defined as a constant function:
 
 ```
-foo = 'bar'
+foo -> 'bar'
 ```
 
 
