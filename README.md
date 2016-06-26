@@ -13,7 +13,7 @@ lambda calculus notation in its syntax.
 Defining a variable in `yahl` looks like one would expect:
 
 ```
-foo = 'bar'
+foo -> 'bar'
 ```
 
 ## Function Declaration
