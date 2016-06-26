@@ -49,6 +49,7 @@ Functions are curried by default so the following two expressions are equivalent
 
 Function invocation resembles traditional haskell syntax
 
+```
 foo x -> 2 * x
-
 foo 2
+```
