@@ -8,14 +8,6 @@ lambda calculus notation in its syntax.
 
 # Examples
 
-## Variable definition
-
-Defining a variable in `yahl` looks like one would expect:
-
-```
-foo -> 'bar'
-```
-
 ## Function Declaration
 
 Function declaration resembles traditional Haskell syntax:
@@ -23,6 +15,16 @@ Function declaration resembles traditional Haskell syntax:
 ```
 foo x -> 2 * x
 ```
+
+
+## Variable definition
+
+Defining a variable in `yahl` is defined as a constant function:
+
+```
+foo = 'bar'
+```
+
 
 ## Lambda functions
 
