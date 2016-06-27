@@ -86,6 +86,7 @@ factor = try floating
       <|> try function
       <|> try binarydef
       <|> try variable
+      <|> parens expr
 
 
 toplevel :: Parser [Expr]

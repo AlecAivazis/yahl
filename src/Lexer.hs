@@ -9,8 +9,8 @@ import qualified Text.Parsec.Token as Tok
 lexer :: Tok.TokenParser ()
 lexer = Tok.makeTokenParser style
   where
-    ops = []
-    names = ["->"]
+    ops = ["(", ")", "->"]
+    names = []
     style = emptyDef {
                Tok.commentLine = "#"
              , Tok.reservedOpNames = ops
