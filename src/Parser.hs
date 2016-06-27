@@ -38,8 +38,8 @@ floating = do
 
 binarydef :: Parser Expr
 binarydef = do
-  o <- operator
   arg1 <- identifier
+  o <- operator
   arg2 <- identifier
   reserved "->"
   body <- expr
