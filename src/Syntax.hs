@@ -1,16 +1,16 @@
 module Syntax where
 
-type Name = String
+type Identifier = String
+
 
 data Expr
   = Float Double
+  | Int Integer
+  | Lambda [Identifier] Expr
+  | Var Identifier Expr
   | BinOp Op Expr Expr
-  | Var String
-  | Call Name [Expr]
-  | Function Name [Expr] Expr
-  | Lambda [Expr] Expr
-  | Extern Name [Expr]
   deriving (Eq, Ord, Show)
+
 
 data Op
   = Plus
