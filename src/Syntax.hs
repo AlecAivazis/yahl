@@ -1,13 +1,15 @@
 module Syntax where
 
-type Identifier = String
+type Name = String
 
 
 data Expr
   = Float Double
   | Int Integer
-  | Lambda [Identifier] Expr
-  | Var Identifier Expr
+  | String String
+  | Identifier Name
+  | Lambda [Name] Expr
+  | Var Name Expr
   | BinOp Op Expr Expr
   deriving (Eq, Ord, Show)
 

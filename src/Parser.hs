@@ -32,6 +32,12 @@ expr :: Parser Expr
 expr = Ex.buildExpressionParser table factor
 
 
+stringLiteral :: Parser Expr
+stringLiteral = do
+  s <- stringLit
+  return $ String s
+
+
 function :: Parser Expr
 function = do
   name <- identifier
@@ -39,6 +45,7 @@ function = do
   reserved "->"
   body <- expr
   return $ Var name $ Lambda args body
+
 
 lambda :: Parser Expr
 lambda = do
@@ -52,13 +59,23 @@ lambda = do
 factor :: Parser Expr
 factor = try floating
       <|> try int
+      <|> try stringLiteral
       <|> try lambda
       <|> try function
+      <|> try variable
+
 
 toplevel :: Parser [Expr]
 toplevel = many $ do
     exp <- expr
     return exp
+
+
+variable :: Parser Expr
+variable = do
+  name <- identifier
+  return $ Identifier name
+
 
 contents :: Parser a -> Parser a
 contents p = do

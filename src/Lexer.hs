@@ -22,14 +22,11 @@ integer = Tok.integer lexer
 float :: Parser Double
 float = Tok.float lexer
 
+stringLit :: Parser String
+stringLit = Tok.stringLiteral lexer
+
 parens :: Parser a -> Parser a
 parens = Tok.parens lexer
-
-commaSep :: Parser a -> Parser [a]
-commaSep = Tok.commaSep lexer
-
-semiSep :: Parser a -> Parser [a]
-semiSep = Tok.semiSep lexer
 
 identifier :: Parser String
 identifier = Tok.identifier lexer
