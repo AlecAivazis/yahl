@@ -1,5 +1,6 @@
 module Lexer where
 
+import Text.Parsec
 import Text.Parsec.String (Parser)
 import Text.Parsec.Language (emptyDef)
 
@@ -8,7 +9,7 @@ import qualified Text.Parsec.Token as Tok
 lexer :: Tok.TokenParser ()
 lexer = Tok.makeTokenParser style
   where
-    ops = ["+","*","-"]
+    ops = []
     names = ["->"]
     style = emptyDef {
                Tok.commentLine = "#"
@@ -16,23 +17,34 @@ lexer = Tok.makeTokenParser style
              , Tok.reservedNames = names
              }
 
+
 integer :: Parser Integer
 integer = Tok.integer lexer
+
 
 float :: Parser Double
 float = Tok.float lexer
 
+
 stringLit :: Parser String
 stringLit = Tok.stringLiteral lexer
+
+
+operator :: Parser String
+operator = Tok.operator lexer
+
 
 parens :: Parser a -> Parser a
 parens = Tok.parens lexer
 
+
 identifier :: Parser String
 identifier = Tok.identifier lexer
 
+
 reserved :: String -> Parser ()
 reserved = Tok.reserved lexer
+
 
 reservedOp :: String -> Parser ()
 reservedOp = Tok.reservedOp lexer

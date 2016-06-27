@@ -2,6 +2,8 @@ module Syntax where
 
 type Name = String
 
+type Prec = Integer
+
 
 data Expr
   = Float Double
@@ -10,13 +12,6 @@ data Expr
   | Identifier Name
   | Lambda [Name] Expr
   | Var Name Expr
-  | BinOp Op Expr Expr
-  deriving (Eq, Ord, Show)
-
-
-data Op
-  = Plus
-  | Minus
-  | Times
-  | Divide
+  | BinaryOperator Name Expr Expr
+  | BinaryDef Name Name Name Expr
   deriving (Eq, Ord, Show)
