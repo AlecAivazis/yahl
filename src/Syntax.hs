@@ -8,6 +8,7 @@ data Expr
   | Var String
   | Call Name [Expr]
   | Function Name [Expr] Expr
+  | Lambda [Expr] Expr
   | Extern Name [Expr]
   deriving (Eq, Ord, Show)
 

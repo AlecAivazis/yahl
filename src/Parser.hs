@@ -42,6 +42,16 @@ function = do
   body <- expr
   return $ Function name args body
 
+
+lambda :: Parser Expr
+lambda = do
+  reserved "λ"
+  args <- many variable
+  reserved "->"
+  body <- expr
+  return $ Lambda args body
+
+
 call :: Parser Expr
 call = do
   name <- identifier
@@ -51,14 +61,15 @@ call = do
 factor :: Parser Expr
 factor = try floating
       <|> try int
+      <|> try lambda
       <|> try function
       <|> try call
       <|> variable
       <|> parens expr
 
 defn :: Parser Expr
-defn = try function
-    <|> expr
+defn = expr
+    <|> try function
 
 contents :: Parser a -> Parser a
 contents p = do
