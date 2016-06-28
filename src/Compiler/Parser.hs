@@ -1,4 +1,4 @@
-module Parser where
+module Compiler.Parser where
 
 import Text.Parsec
 import Text.Parsec.String (Parser)
@@ -6,8 +6,8 @@ import Text.Parsec.String (Parser)
 import qualified Text.Parsec.Expr as Ex
 import qualified Text.Parsec.Token as Tok
 
-import Lexer
-import Syntax
+import Compiler.Lexer
+import Compiler.Syntax
 
 binary s f assoc = Ex.Infix (reservedOp s >> return (BinaryOperator f)) assoc
 
@@ -111,5 +111,5 @@ contents p = do
 parseExpr :: String -> Either ParseError Expr
 parseExpr s = parse (contents expr) "<stdin>" s
 
-parseToplevel :: String -> Either ParseError [Expr]
-parseToplevel s = parse (contents toplevel) "<stdin>" s
+parseProgram :: String -> Either ParseError [Expr]
+parseProgram s = parse (contents toplevel) "<stdin>" s

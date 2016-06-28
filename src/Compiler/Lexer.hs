@@ -1,4 +1,4 @@
-module Lexer where
+module Compiler.Lexer where
 
 import Text.Parsec
 import Text.Parsec.String (Parser)

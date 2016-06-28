@@ -1,9 +1,8 @@
-module Syntax where
+module Compiler.Syntax where
 
 type Name = String
 
 type Prec = Integer
-
 
 data Expr
   = Float Double
