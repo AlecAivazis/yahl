@@ -9,6 +9,7 @@ build-type:          Simple
 extra-source-files:  README.md
 cabal-version:       >=1.10
 
+
 executable repl
   build-depends:
       base       >= 4.6 && <4.9
@@ -23,6 +24,7 @@ executable repl
   main-is:             Repl.hs
 
   Build-depends:       base, array
+
 
 executable yahl
   build-depends:

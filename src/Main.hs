@@ -14,14 +14,11 @@ process line = do
     Left err -> print err
     Right ex -> mapM_ print ex
 
-repl :: IO ()
-repl = runInputT defaultSettings loop
+main :: IO ()
+main = runInputT defaultSettings loop
   where
   loop = do
     minput <- getInputLine "yahl> "
     case minput of
       Nothing -> outputStrLn "Goodbye."
       Just input -> (liftIO $ process input) >> loop
-
-main :: IO ()
-main = repl

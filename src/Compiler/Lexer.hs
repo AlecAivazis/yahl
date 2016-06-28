@@ -1,9 +1,8 @@
 module Compiler.Lexer where
 
-import Text.Parsec
+-- external imports
 import Text.Parsec.String (Parser)
 import Text.Parsec.Language (emptyDef)
-
 import qualified Text.Parsec.Token as Tok
 
 lexer :: Tok.TokenParser ()

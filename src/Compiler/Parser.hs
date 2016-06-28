@@ -1,13 +1,14 @@
 module Compiler.Parser where
 
+-- external imports
 import Text.Parsec
 import Text.Parsec.String (Parser)
-
 import qualified Text.Parsec.Expr as Ex
 import qualified Text.Parsec.Token as Tok
-
+-- local imports
 import Compiler.Lexer
 import Compiler.Syntax
+
 
 binary s f assoc = Ex.Infix (reservedOp s >> return (BinaryOperator f)) assoc
 
