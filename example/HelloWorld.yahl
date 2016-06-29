@@ -1,0 +1,26 @@
+# this is a comment in yahl
+
+# function definition looks similar to haskell
+foo x -> 2 * x
+
+# everything is a function, including constants!
+message -> "hello"
+
+# built in datatypes include:
+first  -> 1       # Integer
+second -> 2.0     # Float
+third  -> "three" # String
+#fourth -> [4]     # List
+#fifth  -> {5}     # Set
+
+# lambda syntax:
+#map [1,2,3,4] (λ num -> num * 2)
+
+
+# binary/infix operators are defined like a normal function
+#. a b -> a * b
+
+#foo xs ->
+#    let sum -> reduce xs (_+_)
+#    let number -> reduce (map xs 1) (_+_)
+#    return sum / number

@@ -3,9 +3,9 @@ module Main where
 -- local imports
 import Compiler.Parser
 -- external imports
-import Control.Monad.Trans
-import System.Console.Haskeline
 import System.Environment
+import System.IO
+import Control.Monad
 
 process :: String -> IO ()
 process line = do
@@ -15,10 +15,7 @@ process line = do
     Right ex -> mapM_ print ex
 
 main :: IO ()
-main = runInputT defaultSettings loop
-  where
-  loop = do
-    minput <- getInputLine "yahl> "
-    case minput of
-      Nothing -> outputStrLn "Goodbye."
-      Just input -> (liftIO $ process input) >> loop
+main = do
+    -- open the example file
+    contents <- readFile "example/HelloWorld.yahl"
+    process contents
