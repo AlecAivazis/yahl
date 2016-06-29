@@ -7,11 +7,11 @@ foo x -> 2 * x
 message -> "hello"
 
 # built in datatypes include:
-first  -> 1       # Integer
-second -> 2.0     # Float
-third  -> "three" # String
-#fourth -> [4]     # List
-#fifth  -> {5}     # Set
+first   ->  1       # Integer
+second  ->  2.0     # Float
+third   ->  "three" # String
+fourth ->  [4]     # List
+fifth  ->  {5}     # Set
 
 # lambda syntax:
 #map [1,2,3,4] (λ num -> num * 2)

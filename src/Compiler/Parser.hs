@@ -47,6 +47,22 @@ binarydef = do
   return $ BinaryDef o arg1 arg2 body
 
 
+set :: Parser Expr
+set = do
+  name <- identifier
+  reserved "->"
+  contents <- braces $ commaSep expr
+  return $ Var name $ Set contents
+
+
+list :: Parser Expr
+list = do
+  name <- identifier
+  reserved "->"
+  contents <- brackets $ commaSep expr
+  return $ Var name $ List contents
+
+
 binaryOp :: Parser Expr
 binaryOp = do
   target1 <- expr
@@ -83,6 +99,8 @@ factor :: Parser Expr
 factor = try floating
       <|> try int
       <|> try stringLiteral
+      <|> try list
+      <|> try set
       <|> try lambda
       <|> try function
       <|> try binarydef

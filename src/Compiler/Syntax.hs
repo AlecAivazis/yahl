@@ -11,6 +11,8 @@ data Expr
   | Identifier Name
   | Lambda [Name] Expr
   | Var Name Expr
+  | Set [Expr]
+  | List [Expr]
   | BinaryOperator Name Expr Expr
   | BinaryDef Name Name Name Expr
   deriving (Eq, Ord, Show)

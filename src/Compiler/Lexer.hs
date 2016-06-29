@@ -37,6 +37,18 @@ parens :: Parser a -> Parser a
 parens = Tok.parens lexer
 
 
+brackets :: Parser a -> Parser a
+brackets = Tok.brackets lexer
+
+
+braces :: Parser a -> Parser a
+braces = Tok.braces lexer
+
+
+commaSep :: Parser a -> Parser [a]
+commaSep = Tok.commaSep lexer
+
+
 identifier :: Parser String
 identifier = Tok.identifier lexer
 
